@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promos Cupons BR — Ofertas, Cupons e Achadinhos Todo Dia</title>
+  <meta name="description" content="Não pague mais caro! Promoções, cupons e ofertas selecionadas todo dia nas maiores lojas do Brasil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul-deep:    #0B1A3E;
+      --azul-mid:     #0F2460;
+      --azul-light:   #1A3580;
+      --dourado:      #C9A84C;
+      --dourado2:     #F0D080;
+      --dourado-glow: rgba(201,168,76,0.25);
+      --branco:       #F8F9FF;
+      --cinza-suave:  rgba(255,255,255,0.07);
+      --borda:        rgba(201,168,76,0.2);
+      --verde-wa:     #25D366;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--azul-deep);
+      color: var(--branco);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: var(--azul-mid);
+    }
+
+    .hero-img {
+      width: 100%;
+      display: block;
+      max-height: 320px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,26,62,0.15) 0%,
+        rgba(11,26,62,0.5) 60%,
+        rgba(11,26,62,1) 100%
+      );
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(11,26,62,0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--borda);
+      border-radius: 100px;
+      padding: 7px 18px;
+      white-space: nowrap;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .pulse-dot {
+      width: 7px; height: 7px;
+      background: var(--verde-wa);
+      border-radius: 50%;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 0 0 5px rgba(37,211,102,0); }
+    }
+
+    .hero-badge span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── INTRO SECTION ── */
+    .intro {
+      text-align: center;
+      padding: 12px 0 36px;
+      animation: fadeUp 0.7s ease both 0.2s;
+    }
+
+    .intro-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 14px;
+    }
+
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 7vw, 42px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--branco);
+      margin-bottom: 14px;
+    }
+
+    .intro h1 em {
+      font-style: normal;
+      color: var(--dourado2);
+    }
+
+    .intro p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 380px;
+      margin: 0 auto 24px;
+    }
+
+    /* ── TRUST PILLS ── */
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s ease both 0.35s;
+    }
+
+    .trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--cinza-suave);
+      border: 1px solid var(--borda);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .trust-pill .icon { font-size: 14px; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.7s ease both 0.4s;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--borda), transparent);
+    }
+
+    .divider-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      white-space: nowrap;
+    }
+
+    /* ── GROUP CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(26,53,128,0.6), rgba(15,36,96,0.8));
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      padding: 28px 24px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      animation: fadeUp 0.7s ease both;
+      backdrop-filter: blur(8px);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.45s; }
+    .card:nth-child(2) { animation-delay: 0.55s; }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 24px; right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0.6;
+    }
+
+    .card-glow {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--dourado-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.35);
+      border-color: rgba(201,168,76,0.45);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card-emoji {
+      font-size: 38px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .card-meta { flex: 1; }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--branco);
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    /* FEATURES LIST */
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .feat::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--dourado);
+      flex-shrink: 0;
+    }
+
+    /* CTA BUTTON */
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1ebe57, var(--verde-wa));
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.3);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-wa::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(37,211,102,0.45);
+    }
+
+    .btn-wa:active { transform: translateY(0); }
+
+    .btn-wa svg {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+    }
+
+    .btn-free {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FERNANDA HERO ── */
+    .fernanda-hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: var(--azul-mid);
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s ease both 0.65s;
+    }
+
+    .fernanda-img {
+      width: 100%;
+      display: block;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .fernanda-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(11,26,62,0.05) 0%,
+        rgba(11,26,62,0.25) 55%,
+        rgba(11,26,62,1) 100%
+      );
+    }
+
+    .fernanda-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 0; right: 0;
+      text-align: center;
+    }
+
+    .fernanda-caption strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 3px;
+    }
+
+    .fernanda-caption span {
+      font-size: 12px;
+      color: var(--dourado);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 0 0 40px;
+      animation: fadeUp 0.7s ease both 0.75s;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE FINE-TUNING ── */
+    @media (max-width: 400px) {
+      .card { padding: 22px 18px; }
+      .intro h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      <span>Grupos ativos agora</span>
+    </div>
+    <img class="hero-img" src="banner.jpeg" alt="Promos Cupons BR — Ofertas, cupons e achadinhos todo dia">
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- INTRO -->
+    <div class="intro">
+      <span class="intro-eyebrow">✦ 100% gratuito</span>
+      <h1>Economize todo dia<br>nas <em>melhores lojas</em></h1>
+      <p>Cupons, promoções relâmpago e achadinhos garimpados nas maiores lojas do Brasil — direto no seu WhatsApp.</p>
+    </div>
+
+    <!-- TRUST PILLS -->
+    <div class="trust-row">
+      <div class="trust-pill"><span class="icon">📦</span> Mercado Livre</div>
+      <div class="trust-pill"><span class="icon">🛒</span> Amazon</div>
+      <div class="trust-pill"><span class="icon">🛍️</span> Shopee</div>
+      <div class="trust-pill"><span class="icon">🏪</span> Magalu</div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">Escolha seu grupo</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+
+      <!-- GRUPO GERAL -->
+      <div class="card">
+        <div class="card-glow"></div>
+        <div class="card-header">
+          <div class="card-emoji">🏷️</div>
+          <div class="card-meta">
+            <span class="card-tag">Grupo geral</span>
+            <h2>Promos Cupons BR</h2>
+          </div>
+        </div>
+        <p class="card-desc">As melhores ofertas do dia em eletrônicos, moda, beleza, casa e muito mais — tudo selecionado para você não perder nenhuma promoção.</p>
+        <div class="features">
+          <div class="feat">Promoções de todas as categorias</div>
+          <div class="feat">Cupons exclusivos todo dia</div>
+          <div class="feat">Alertas de oferta relâmpago</div>
+        </div>
+        <a class="btn-wa" href="https://chat.whatsapp.com/KaVFxyvCNGgFJmmT9pmbCO?mode=gi_t" onclick="track('geral')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Entrar no grupo grátis
+        </a>
+        <p class="btn-free">Gratuito · Saia quando quiser</p>
+      </div>
+
+      <!-- GRUPO MASCULINO -->
+      <div class="card">
+        <div class="card-glow"></div>
+        <div class="card-header">
+          <div class="card-emoji">💎</div>
+          <div class="card-meta">
+            <span class="card-tag">Clube masculino</span>
+            <h2>Clube de Ofertas Masculinas</h2>
+          </div>
+        </div>
+        <p class="card-desc">Eletrônicos, ferramentas, games, moda e acessórios masculinos. As melhores ofertas com foco no que você mais usa.</p>
+        <div class="features">
+          <div class="feat">Games, eletrônicos e gadgets</div>
+          <div class="feat">Ferramentas e equipamentos</div>
+          <div class="feat">Moda e acessórios masculinos</div>
+        </div>
+        <a class="btn-wa" href="https://chat.whatsapp.com/KkwZqEjOcqI0WLRYBUkbzD" onclick="track('masculino')">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Entrar no clube grátis
+        </a>
+        <p class="btn-free">Gratuito · Saia quando quiser</p>
+      </div>
+
+    </div>
+
+    <!-- FERNANDA HERO -->
+    <div class="fernanda-hero">
+      <img class="fernanda-img" src="fernanda.jpeg" alt="Fernanda — @promocupons.br">
+      <div class="fernanda-overlay"></div>
+      <div class="fernanda-caption">
+        <strong>Garimpado por quem entende</strong>
+        <span>@promocupons.br no Instagram</span>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 <a href="/">Promos Cupons BR</a> · promoscupons.com.br</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function track(grupo) {
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: grupo });
+    }
+  </script>
+</body>
+</html>
