@@ -1,94 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clube de Ofertas Masculinas — Promos Cupons BR</title>
-  <meta name="description" content="Eletrônicos, games, ferramentas e moda masculina com os melhores cupons do Brasil.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --azul: #0B1A3E; --prata: #8A9BB5; --prata2: #C8D6E8;
-      --branco: #F8F9FF; --verde-wa: #25D366; --borda: rgba(138,155,181,0.25); --suave: rgba(255,255,255,0.06);
-    }
-    html, body { height: 100%; }
-    body { background: var(--azul); color: var(--branco); font-family: 'Outfit', sans-serif; overflow-x: hidden; }
-    .hero { position: relative; width: 100%; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
-    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .hero-gradient { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,26,62,0.08) 0%, rgba(11,26,62,0.15) 35%, rgba(11,26,62,0.72) 65%, rgba(11,26,62,0.97) 85%, rgba(11,26,62,1) 100%); }
-    .hero-badge { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; background: rgba(11,26,62,0.7); backdrop-filter: blur(10px); border: 1px solid var(--borda); border-radius: 100px; padding: 7px 18px; white-space: nowrap; z-index: 2; }
-    .dot { width: 7px; height: 7px; background: var(--verde-wa); border-radius: 50%; animation: pulseDot 2s infinite; }
-    @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 50% { box-shadow: 0 0 0 5px rgba(37,211,102,0); } }
-    .hero-badge span { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8); }
-    .hero-content { position: relative; z-index: 2; padding: 0 22px 36px; text-align: center; max-width: 500px; margin: 0 auto; width: 100%; }
-    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--prata2); margin-bottom: 10px; }
-    .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 8vw, 42px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 10px; }
-    .hero-title em { font-style: normal; color: var(--prata2); }
-    .hero-sub { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
-    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 17px 20px; border-radius: 14px; background: linear-gradient(135deg, #1ebe57, var(--verde-wa)); color: white; font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; box-shadow: 0 8px 28px rgba(37,211,102,0.35); transition: all 0.2s; position: relative; overflow: hidden; }
-    .btn-wa::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%); pointer-events: none; }
-    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(37,211,102,0.5); }
-    .btn-wa svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .btn-free { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 8px; text-align: center; }
-    .body-wrap { background: var(--azul); padding: 0 22px 48px; max-width: 500px; margin: 0 auto; }
-    .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-align: center; margin-bottom: 14px; padding-top: 36px; }
-    .markets { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
-    .market-pill { background: var(--suave); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; padding: 7px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.65); display: flex; align-items: center; gap: 6px; }
-    .divider { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-    .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--borda), transparent); }
-    .divider-text { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--prata2); }
-    .benefits { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-    .benefit { display: flex; align-items: center; gap: 14px; background: var(--suave); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px 16px; }
-    .benefit-icon { font-size: 24px; flex-shrink: 0; width: 44px; height: 44px; background: rgba(138,155,181,0.12); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-    .benefit-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--branco); margin-bottom: 2px; }
-    .benefit-text span { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.4; }
-    .cta-final { margin-bottom: 12px; }
-    .back-link { display: block; text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; margin-top: 20px; margin-bottom: 16px; }
-    footer { text-align: center; font-size: 11px; color: rgba(255,255,255,0.2); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clube de Ofertas Masculinas — Promos Cupons BR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0B1A3E;color:#F8F9FF;font-family:'Outfit',sans-serif;overflow-x:hidden}
+.hero{position:relative;width:100%;height:100vh;min-height:580px;max-height:900px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,26,62,.05) 0%,rgba(11,26,62,.1) 30%,rgba(11,26,62,.75) 65%,#0B1A3E 100%)}
+.badge{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:7px;background:rgba(11,26,62,.72);backdrop-filter:blur(8px);border:1px solid rgba(138,155,181,.25);border-radius:100px;padding:6px 16px;white-space:nowrap;z-index:3}
+.dot{width:6px;height:6px;background:#25D366;border-radius:50%;animation:p 2s infinite}
+@keyframes p{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 4px rgba(37,211,102,0)}}
+.badge span{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.hero-txt{position:relative;z-index:3;padding:0 20px 28px;text-align:center;max-width:440px;margin:0 auto;width:100%}
+.eye{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#C8D6E8;margin-bottom:8px}
+h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.15;margin-bottom:8px}
+h1 em{font-style:normal;color:#C8D6E8}
+.sub{font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);margin-bottom:18px}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;border-radius:13px;background:linear-gradient(135deg,#1ebe57,#25D366);color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.35);transition:all .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(37,211,102,.5)}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.free{font-size:11px;color:rgba(255,255,255,.3);margin-top:7px;text-align:center}
+.wrap{padding:0 20px 44px;max-width:440px;margin:0 auto}
+.slabel{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.28);text-align:center;padding-top:28px;margin-bottom:12px}
+.pills{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:6px 13px;font-size:12px;font-weight:600;color:rgba(255,255,255,.62)}
+.div{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.dline{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(138,155,181,.25),transparent)}
+.dtxt{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#C8D6E8}
+.bens{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.ben{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:13px;padding:13px 14px}
+.bico{font-size:20px;width:40px;height:40px;background:rgba(138,155,181,.12);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.btxt strong{display:block;font-size:13px;font-weight:700;margin-bottom:2px}
+.btxt span{font-size:12px;color:rgba(255,255,255,.44);line-height:1.4}
+.back{display:block;text-align:center;font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;margin-top:18px;margin-bottom:14px}
+footer{text-align:center;font-size:11px;color:rgba(255,255,255,.18)}
+</style>
 </head>
 <body>
-  <div class="hero">
-    <img class="hero-img" src="../masculino-hero.jpeg" alt="Clube de Ofertas Masculinas">
-    <div class="hero-gradient"></div>
-    <div class="hero-badge"><span class="dot"></span><span>Clube ativo agora</span></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">💎 Clube exclusivo</p>
-      <h1 class="hero-title">Ofertas feitas<br>para <em>você, homem</em></h1>
-      <p class="hero-sub">Eletrônicos, games, ferramentas e moda masculina com os melhores cupons — todo dia no WhatsApp.</p>
-      <a class="btn-wa" href="https://chat.whatsapp.com/KkwZqEjOcqI0WLRYBUkbzD">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Entrar no clube grátis
-      </a>
-      <p class="btn-free">Gratuito · Saia quando quiser</p>
-    </div>
+<div class="hero">
+  <img src="../masculino-hero.jpeg" alt="Clube de Ofertas Masculinas">
+  <div class="fade"></div>
+  <div class="badge"><span class="dot"></span><span>Clube ativo agora</span></div>
+  <div class="hero-txt">
+    <p class="eye">💎 Clube exclusivo</p>
+    <h1>Ofertas feitas<br>para <em>você, homem</em></h1>
+    <p class="sub">Eletrônicos, games, ferramentas e moda masculina com os melhores cupons — todo dia no WhatsApp.</p>
+    <a class="btn" href="https://chat.whatsapp.com/KkwZqEjOcqI0WLRYBUkbzD">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Entrar no clube grátis
+    </a>
+    <p class="free">Gratuito · Saia quando quiser</p>
   </div>
-  <div class="body-wrap">
-    <p class="section-label">Ofertas de onde você já compra</p>
-    <div class="markets">
-      <div class="market-pill">🛒 Shopee</div>
-      <div class="market-pill">📦 Amazon</div>
-      <div class="market-pill">🤝 Mercado Livre</div>
-      <div class="market-pill">🏪 Magalu</div>
-      <div class="market-pill">🏠 Casas Bahia</div>
-    </div>
-    <div class="divider"><div class="divider-line"></div><span class="divider-text">Por que entrar?</span><div class="divider-line"></div></div>
-    <div class="benefits">
-      <div class="benefit"><div class="benefit-icon">⚡</div><div class="benefit-text"><strong>Promoções relâmpago</strong><span>Você recebe antes de qualquer um. Sem perder oferta por chegar tarde.</span></div></div>
-      <div class="benefit"><div class="benefit-icon">🎮</div><div class="benefit-text"><strong>Foco no que você usa</strong><span>Games, eletrônicos, ferramentas e moda. Sem categoria irrelevante.</span></div></div>
-      <div class="benefit"><div class="benefit-icon">🏷️</div><div class="benefit-text"><strong>Cupons verificados todo dia</strong><span>Descontos reais das lojas que você já conhece. Sem spam.</span></div></div>
-    </div>
-    <div class="cta-final">
-      <a class="btn-wa" href="https://chat.whatsapp.com/KkwZqEjOcqI0WLRYBUkbzD">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Entrar no clube grátis
-      </a>
-      <p class="btn-free">Gratuito · Saia quando quiser</p>
-    </div>
-    <a class="back-link" href="/">← Ver outros grupos</a>
-    <footer>© 2026 Promos Cupons BR · promoscupons.com.br</footer>
+</div>
+<div class="wrap">
+  <p class="slabel">Ofertas de onde você já compra</p>
+  <div class="pills">
+    <span class="pill">🛒 Shopee</span><span class="pill">📦 Amazon</span><span class="pill">🤝 Mercado Livre</span><span class="pill">🏪 Magalu</span><span class="pill">🏠 Casas Bahia</span>
   </div>
+  <div class="div"><div class="dline"></div><span class="dtxt">Por que entrar?</span><div class="dline"></div></div>
+  <div class="bens">
+    <div class="ben"><div class="bico">⚡</div><div class="btxt"><strong>Promoções relâmpago</strong><span>Você recebe antes de qualquer um, sem perder oferta por chegar tarde.</span></div></div>
+    <div class="ben"><div class="bico">🎮</div><div class="btxt"><strong>Foco no que você usa</strong><span>Games, eletrônicos, ferramentas e moda. Sem categoria irrelevante.</span></div></div>
+    <div class="ben"><div class="bico">🏷️</div><div class="btxt"><strong>Cupons verificados todo dia</strong><span>Descontos reais das lojas que você já conhece. Sem spam.</span></div></div>
+  </div>
+  <a class="btn" href="https://chat.whatsapp.com/KkwZqEjOcqI0WLRYBUkbzD">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Entrar no clube grátis
+  </a>
+  <p class="free">Gratuito · Saia quando quiser</p>
+  <a class="back" href="/">← Ver outros grupos</a>
+  <footer>© 2026 Promos Cupons BR · promoscupons.com.br</footer>
+</div>
 </body>
 </html>
